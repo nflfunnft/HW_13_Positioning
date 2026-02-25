@@ -32,19 +32,23 @@ body {
     font-family: var(--main-font-family);
     min-height: 200vh;
     position: relative;
+    /* Додаємо плавний скрол */
+    scroll-behavior: smooth;
 }
 
 .background {
-    position: absolute;
-    /* Вибиваємо з потоку, щоб не заважати тексту */
-    top: 50px;
-    right: 0;
+    position: fixed;
+    /* 1. Вертикаль: висота хедера + твій відступ 70px */
+    /* Якщо хедер ~80px, то 80 + 70 = 150px */
+    top: 150px;
+    /* 2. Горизонталь: прив'язка до центру */
+    left: 50%;
+    margin-left: 10px;
+
     width: 760px;
-    /* Налаштуй під розмір своєї картинки */
     height: 760px;
     background: url('../assets/img/bg_picture.png') no-repeat center / contain;
     z-index: -1;
-    /* Відправляємо на задній план */
 }
 
 .container {
@@ -88,6 +92,9 @@ a {
 section {
     position: relative;
     margin-bottom: 80px;
+    /* Відступ має бути рівним висоті хедера + невеликий запас */
+    scroll-margin-top: 100px;
+
 }
 
 .lang__link {
@@ -118,9 +125,9 @@ section {
     /* Скидаємо зовнішні відступи */
     padding-top: 35px;
     /* Відступ від чорної лінії зверху до тексту заголовка */
+    padding-bottom: 40px;
     position: relative;
     line-height: 1;
-    /* Допомагає чітко розрахувати координати */
     font-family: var(--title-font-family);
     font-size: 36px;
     font-weight: 400;
@@ -172,13 +179,9 @@ code {
 /* 3. Меню, яке липне */
 .aside-menu {
     position: sticky;
-    /* Цей top має враховувати твій padding для вирівнювання + висоту хедера */
-    /* Якщо хедер 80px + хочеш відступ 40px = 120px */
     top: 120px;
     display: flex;
     flex-direction: column;
-
-    /* Саме ТУТ додаємо відступ для вирівнювання першої лінії */
     margin-top: 5px;
 }
 
