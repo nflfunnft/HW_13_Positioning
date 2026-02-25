@@ -106,7 +106,17 @@ section {
     display: flex;
     justify-content: flex-start;
     flex-grow: 1;
-    gap: 28px;
+    gap: 10px;
+}
+
+.menu__slash {
+    font-size: 28px;
+    font-family: "Staatliches", sans-serif;
+    color: #000;
+    line-height: 1;
+    user-select: none;
+    position: relative;
+    top: 8px;
 }
 
 .menu__link {
@@ -205,7 +215,93 @@ code {
 }
 
 .aside-menu__link:hover {
-    padding-left: 10px;
+    padding-left: 4px;
     /* Маленький ефект при наведенні для інтерактивності */
     color: #555;
+}
+
+/* Контейнер для заголовка з лінією */
+.title-wrapper {
+    position: relative;
+    padding-top: 40px;
+    /* Місце для лінії */
+    margin-bottom: 60px;
+}
+
+/* Чорна лінія над заголовком (позиціювання) */
+.title-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    /* Довжина лінії як на макеті */
+    height: 8px;
+    /* Товщина лінії */
+    background-color: #000;
+}
+
+/* Контейнер для лінії збоку */
+.title-wrapper--side {
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    margin-bottom: 60px;
+}
+
+/* Лінія стає перед текстом */
+.title-wrapper--side::before {
+    position: static;
+    margin-right: 30px;
+}
+
+/* Сам текст: прибираємо великі літери та зайві лінії */
+/* Змінюємо паддінги тільки для заголовка всередині модифікатора --side */
+.title-wrapper--side .title_2 {
+    padding-top: 0;
+    /* Прибираємо верхній відступ, щоб текст був на рівні з лінією */
+    padding-bottom: 0;
+    /* Прибираємо нижній відступ, якщо він заважає сітці */
+    margin: 0;
+    /* Обнуляємо марджини для точного позиціювання */
+    text-transform: none;
+}
+
+.title-wrapper--side .title_2::before {
+    display: none;
+}
+
+/* Налаштування сітки логотипів */
+.logos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 колонки як на макеті */
+    gap: 20px;
+    border-top: 1px solid #eee;
+    /* Тонка лінія зверху */
+    border-bottom: 1px solid #eee;
+    /* Тонка лінія знизу */
+    padding: 40px 0;
+}
+
+/* Картка логотипа */
+.logo-card {
+    background-color: #efefef;
+    /* Світло-сірий фон */
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+/* Акцентна чорна картка (Shopify) */
+.logo-card--black {
+    background-color: #1a1a1a;
+}
+
+.logo-card img {
+    max-width: 80%;
+    filter: grayscale(100%);
+    /* Робимо логотипи чорно-білими, якщо вони кольорові */
 }
