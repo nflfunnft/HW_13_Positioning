@@ -1,0 +1,208 @@
+@import url('./fonts.css');
+@import url('./vars.css');
+
+
+/* position Value
+
+1. position: absolute - абсолютне позиціювання, вибиває з потоку;
+2. position: relative - відносне позиціювання, не вибиває з потоку;
+3. position: fixed - фіксується відносно вікна залізобетоноб вибивається з потоку;
+4. position: sticky - поєднання relative і fixed, не вибиває з потоку;
+5. position: static (по замовчуванню);
+
+top, right, bottom, left - напрямки (координати)
+z-index
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol {
+    padding-left: 0;
+    list-style: none;
+}
+
+html,
+body {
+    font-size: var(--main-font-size);
+    font-family: var(--main-font-family);
+    min-height: 200vh;
+    position: relative;
+}
+
+.background {
+    position: absolute;
+    /* Вибиваємо з потоку, щоб не заважати тексту */
+    top: 50px;
+    right: 0;
+    width: 760px;
+    /* Налаштуй під розмір своєї картинки */
+    height: 760px;
+    background: url('../assets/img/bg_picture.png') no-repeat center / contain;
+    z-index: -1;
+    /* Відправляємо на задній план */
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 30px;
+}
+
+.header {
+    width: 100%;
+    padding: 13px 0;
+    position: fixed;
+    z-index: 1;
+    background: #fff;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+section {
+    position: relative;
+    margin-bottom: 80px;
+}
+
+.lang__link {
+    font-family: "Tourney";
+    font-size: 22px;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-start;
+    flex-grow: 1;
+    gap: 28px;
+}
+
+.menu__link {
+    font-family: "Staatliches";
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.main {
+    position: relative;
+    padding-top: 150px;
+}
+
+.title_2 {
+    margin: 0;
+    /* Скидаємо зовнішні відступи */
+    padding-top: 35px;
+    /* Відступ від чорної лінії зверху до тексту заголовка */
+    position: relative;
+    line-height: 1;
+    /* Допомагає чітко розрахувати координати */
+    font-family: var(--title-font-family);
+    font-size: 36px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.title_2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    /* Лінія тепер чітко у верхній точці контейнера */
+    left: 0;
+    width: 100px;
+    height: 8px;
+    background: #000;
+}
+
+.sup-title {
+    font-family: var(--chapter-font-family);
+    font-size: 15px;
+    font-weight: 200;
+    position: absolute;
+    top: 25px;
+}
+
+.text {
+    margin-bottom: 40px;
+}
+
+section p:last-child {
+    margin-bottom: 0;
+}
+
+code {
+    font-family: monospace;
+    background-color: #F4F4F4;
+}
+
+.text__bg {
+    background-color: #F4F4F4;
+}
+
+.sidebar {
+    width: 350px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* 3. Меню, яке липне */
+.aside-menu {
+    position: sticky;
+    /* Цей top має враховувати твій padding для вирівнювання + висоту хедера */
+    /* Якщо хедер 80px + хочеш відступ 40px = 120px */
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+
+    /* Саме ТУТ додаємо відступ для вирівнювання першої лінії */
+    margin-top: 5px;
+}
+
+/* Відстань 70px між лінією та наступним текстом */
+.aside-menu__item {
+    border-bottom: 1px solid #D9D9D9;
+    margin-bottom: 70px;
+}
+
+.aside-menu__item:last-child {
+    margin-bottom: 0;
+}
+
+.aside-menu__link {
+    display: block;
+    padding-bottom: 10px;
+    /* Відстань від тексту до лінії */
+    font-family: var(--title-font-family);
+    font-size: 36px;
+    text-transform: uppercase;
+}
+
+.aside-menu__link:hover {
+    padding-left: 10px;
+    /* Маленький ефект при наведенні для інтерактивності */
+    color: #555;
+}
