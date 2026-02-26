@@ -2,7 +2,7 @@
     font-family: "Tourney";
     src: url('../assets/fonts/tourney/Tourney-SemiBold.woff') format('woff'),
         url('../assets/fonts/tourney/Tourney-SemiBold.woff2') format('woff2');
-    font-optical-sizing: auto;
+    /* font-optical-sizing: auto; - чомусь валідатор вказує помилку*/
     font-weight: 600;
     font-style: normal;
 
