@@ -286,9 +286,8 @@ code {
 
 /* Картка логотипа */
 .logo-card {
-    background-color: #efefef;
-    /* Світло-сірий фон */
-    height: 160px;
+    max-width: 270px;
+    max-height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -301,7 +300,12 @@ code {
 }
 
 .logo-card img {
-    max-width: 80%;
-    filter: grayscale(100%);
-    /* Робимо логотипи чорно-білими, якщо вони кольорові */
+    width: 100%;
+    /* Розтягуємо на всю ширину картки */
+    height: 100%;
+    /* Розтягуємо на всю висоту картки */
+    object-fit: cover;
+    /* Важливо: малюнок заповнить простір без деформації */
+    display: block;
+    /* Прибираємо зайві відступи знизу */
 }
