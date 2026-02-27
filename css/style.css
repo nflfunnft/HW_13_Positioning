@@ -73,9 +73,9 @@ body {
 
 .nav {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
-    gap: 50px;
+    /* gap: 50px; */
 }
 
 ul {
@@ -93,7 +93,6 @@ section {
     margin-bottom: 80px;
     /* Відступ має бути рівним висоті хедера + невеликий запас */
     scroll-margin-top: 100px;
-
 }
 
 .lang__link {
@@ -106,6 +105,7 @@ section {
     justify-content: flex-start;
     flex-grow: 1;
     gap: 10px;
+    margin-left: 50px;
 }
 
 .menu__slash {
